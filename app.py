@@ -2,23 +2,40 @@ import pandas as pd
 import streamlit as st
 import numpy
 
+# Add custom CSS to hide the GitHub icon
+hide_github_icon = """
+#GithubIcon {
+  visibility: hidden;
+}
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
 
-st.set_page_config(
-                    page_title="Consulta por Rotas",
-                    layout="wide", 
-                    page_icon="cotralti_logo.png",
-                    #initial_sidebar_state="collapsed" # inicia com barra de filtros fechada
+def hide_anchor_link():
+    st.markdown(
+        body="""
+        <style>
+            h1 > div > a {
+                display: none;
+            }
+            h2 > div > a {
+                display: none;
+            }
+            h3 > div > a {
+                display: none;
+            }
+            h4 > div > a {
+                display: none;
+            }
+            h5 > div > a {
+                display: none;
+            }
+            h6 > div > a {
+                display: none;
+            }
+        </style>
+        """,
+         unsafe_allow_html=True,
 )
-
-st.header("Consulta por Cidade!", divider='gray')
-
-DataFrame = pd.read_excel("Base Rotas.xlsx", index_col=4)#index_col=2
-DataFrame["Cidade"] = DataFrame["Cidade"].astype("string")
-DataFrame["Estado de Destino"]  = DataFrame["Estado de Destino"]
-
-with open ('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
 
 #Editar a Imagem da Cotralti e deixar ela centralizada
 st.markdown(
@@ -42,6 +59,22 @@ hide_github_icon = """
     opacity:0;
 }
 """
+st.set_page_config(
+                    page_title="Consulta por Rotas",
+                    layout="wide", 
+                    page_icon="cotralti_logo.png",
+                    #initial_sidebar_state="collapsed" # inicia com barra de filtros fechada
+)
+
+st.header("Consulta por Cidade!", divider='gray')
+
+DataFrame = pd.read_excel("Base Rotas.xlsx", index_col=4)#index_col=2
+DataFrame["Cidade"] = DataFrame["Cidade"].astype("string")
+DataFrame["Estado de Destino"]  = DataFrame["Estado de Destino"]
+
+with open ('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 
 st.sidebar.image("cotralti_logo.png",width=100,)
 st.sidebar.markdown("""
