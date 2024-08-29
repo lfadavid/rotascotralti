@@ -2,13 +2,21 @@ import pandas as pd
 import streamlit as st
 import numpy
 
+
+st.set_page_config(
+                    page_title="Consulta por Rotas",
+                    layout="wide", 
+                    page_icon="cotralti_logo.png",
+                    #initial_sidebar_state="collapsed" # inicia com barra de filtros fechada
+)
 # Add custom CSS to hide the GitHub icon
 hide_github_icon = """
 #GithubIcon {
   visibility: hidden;
 }
 """
-st.markdown(hide_github_icon, unsafe_allow_html=True)
+
+
 
 def hide_anchor_link():
     st.markdown(
@@ -59,13 +67,6 @@ hide_github_icon = """
     opacity:0;
 }
 """
-st.set_page_config(
-                    page_title="Consulta por Rotas",
-                    layout="wide", 
-                    page_icon="cotralti_logo.png",
-                    #initial_sidebar_state="collapsed" # inicia com barra de filtros fechada
-)
-
 st.header("Consulta por Cidade!", divider='gray')
 
 DataFrame = pd.read_excel("Base Rotas.xlsx", index_col=4)#index_col=2
