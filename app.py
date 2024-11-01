@@ -97,6 +97,7 @@ tabela_de_fat = st.sidebar.multiselect(
                 key=2,
                 label="Tabela de Fat.",
                 options=DataFrame["Tabela de Fat."].unique(),
+                placeholder="Selecione a Rota",
                 help="Selecione a rota e click nela."
                 
             )
