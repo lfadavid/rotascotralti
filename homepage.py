@@ -2,6 +2,7 @@ import streamlit as st
 import socket
 import requests
 import os
+import getpass
 
 
 st.markdown(
@@ -25,7 +26,7 @@ with open ('style.css') as f:
 
 hostname = socket.gethostname()
 public_ip = requests.get('https://api.ipify.org').text
-username = os.getlogin()
+username = getpass.getuser()
 
 coluna_esquerda, coluna_direita = st.columns([1, 1.5])
 
