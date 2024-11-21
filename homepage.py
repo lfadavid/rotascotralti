@@ -26,13 +26,14 @@ with open ('style.css') as f:
 
 hostname = socket.gethostname()
 public_ip = requests.get('https://api.ipify.org').text
+public_hostname = socket.getfqdn(socket.gethostbyname(socket.gethostname()))
 username = getpass.getuser()
 
 coluna_esquerda, coluna_direita = st.columns([1, 1.5])
 
 coluna_esquerda.header("Cotralti :blue[T&L.] ", divider='green')
 
-coluna_esquerda.write(f"### Olá, :red[😁**{username}**]") # markdown
+coluna_esquerda.write(f"### Olá, :red[😁**{public_hostname}**]") # markdown
 coluna_esquerda.write(f"#### Seu IP, :red[**{public_ip}**]") # markdown
 
     
