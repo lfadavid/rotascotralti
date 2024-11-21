@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from conversor_moedas import main
 
 st.set_page_config(
     page_title="Cotralti Transportes e Logistica",
@@ -15,7 +16,7 @@ pg = st.navigation(
                          st.Page("rateiofrete.py", title="② Rateio de Frete por peso")],
 "𝐔𝐭𝐢𝐥𝐢𝐭𝐚́𝐫𝐢𝐨𝐬":[st.Page("separadorpdf.py", title="📝Separador Arquivos PDF"),
             st.Page("juntarpdf.py", title="📝Juntar Arquivos PDF"),
-            st.Page("conversor_moedas.py", title="📝Conversor de Moeda")]
+            st.Page(main, title="📝Conversor de Moeda")]
   }
 )               
 pg.run()
