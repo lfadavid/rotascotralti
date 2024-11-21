@@ -14,7 +14,8 @@ pg = st.navigation(
 "𝗖𝗼𝗻𝘀𝘂𝗹𝘁𝗮𝘀 𝗻𝗮 𝗧𝗮𝗯𝗲𝗹𝗮 𝗦𝗽𝗶𝗰𝗲":[st.Page("consultarotas.py", title="① Consulta por Rotas"),
                          st.Page("rateiofrete.py", title="② Rateio de Frete por peso")],
 "𝐔𝐭𝐢𝐥𝐢𝐭𝐚́𝐫𝐢𝐨𝐬":[st.Page("separadorpdf.py", title="📝Separador Arquivos PDF"),
-                                 st.Page("juntarpdf.py", title="📝Juntar Arquivos PDF")]
+            st.Page("juntarpdf.py", title="📝Juntar Arquivos PDF"),
+            st.Page("conversor_moedas.py", title="📝Conversor de Moeda")]
   }
 )               
 pg.run()
