@@ -28,12 +28,14 @@ hostname = socket.gethostname()
 public_ip = requests.get('https://api.ipify.org').text
 public_hostname = socket.getfqdn(socket.gethostbyname(socket.gethostname()))
 username = getpass.getuser()
+ip_address = public_ip  # Substitua pelo IP desejado
+hostname, _, _ = socket.gethostbyaddr(ip_address)
 
 coluna_esquerda, coluna_direita = st.columns([1, 1.5])
 
 coluna_esquerda.header("Cotralti :blue[T&L.] ", divider='green')
 
-coluna_esquerda.write(f"### Olá, :red[😁**{public_hostname}**]") # markdown
+coluna_esquerda.write(f"### Olá, :red[😁**{hostname}**]") # markdown
 coluna_esquerda.write(f"#### Seu IP, :red[**{public_ip}**]") # markdown
 
     
