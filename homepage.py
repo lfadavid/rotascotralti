@@ -1,5 +1,6 @@
 import streamlit as st
 import socket
+import requests
 
 
 st.markdown(
@@ -22,12 +23,13 @@ with open ('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 hostname = socket.gethostname()
+public_ip = requests.get('https://api.ipify.org').text
 
 coluna_esquerda, coluna_direita = st.columns([1, 1.5])
 
 coluna_esquerda.header("Cotralti :blue[T&L.] ", divider='green')
 
-coluna_esquerda.write(f"#### Olá, :red[😁**{hostname}**]") # markdown
+coluna_esquerda.write(f"#### Olá, :red[😁**{public_ip}**]") # markdown
     
 st.markdown("𝑨𝒄𝒆𝒔𝒔𝒆 𝒏𝒐𝒔𝒔𝒐 𝒔𝒊𝒕𝒆 𝒑𝒂𝒓𝒂 𝒄𝒐𝒏𝒉𝒆𝒄𝒆𝒓 𝒏𝒐𝒔𝒔𝒐𝒔 𝒔𝒆𝒓𝒗𝒊𝒄̧𝒐𝒔 :red[http://cotralti.com.br]")
 botao_dashboards = coluna_esquerda.button("Juntar PDFs 📃 ")
