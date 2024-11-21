@@ -3,3 +3,4 @@ pandas
 google-generativeai
 numpy
 openpyxl
+fitz  
