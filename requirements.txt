@@ -1,7 +1,4 @@
 streamlit
 pandas
-google-generativeai
 numpy
 openpyxl
-fitz  
-PyMuPDF 
